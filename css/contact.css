@@ -1,0 +1,32 @@
+.container1 {
+	padding: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+   width: 600px;
+   margin: 20px  auto;
+
+}
+
+.container1 p{
+	margin-bottom: 15px;
+
+}
+
+
+
+
+.container1 label{
+	display: block;
+}
+
+.container1 input , textarea{
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+
+}
+
+.container1 button{
+	padding: 10px 20px;
+
+}

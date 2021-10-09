@@ -1,0 +1,233 @@
+body {
+  --screen-width: 100%;
+  --screen-height: 100%;
+  
+  --nav-text-color: #ffffff;
+  --nav-height: 50px;
+  --nav-width: 280px;
+  --nav-count: 30;
+  --active-color: #095484;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+a{
+	text-decoration: none;
+}
+
+.container {
+  background-image: linear-gradient(to bottom right, #ff9eaa 0% 65%, #e860ff 95% 100%);
+  width: var(--screen-width);
+  height: var(--screen-height);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.nav-opener {
+  display: none;
+}
+
+.nav-opener:checked + .nav {
+  width: var(--screen-width);
+  height: var(--screen-height);
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+}
+
+.nav {
+  width: var(--screen-width);
+  height: var(--screen-height);
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+  
+  display: grid;
+  grid-template-rows: var(--nav-height) 30% auto;
+  grid-template-columns: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+ 
+}
+
+.nav-header {
+  background-color: #323232;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links {
+  background-image: url("../images/sidebar1.jpg");
+  //background-color: #323232;
+  padding: 0;
+  margin: 0;
+  display: block;
+  grid-template-rows: repeat(var(--nav-count), var(--nav-height));
+  grid-template-columns: 100%;
+  overflow: auto;
+  list-style-type: none;
+}
+
+.nav-link, .sub-link {
+  
+  height: var(--nav-height);
+  color: var(--nav-text-color);
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  user-select: none;
+  //transition: all 0.3s ease-in;
+}
+
+.nav-link label , .sub-link label{
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-container i {
+  margin-left: 20px;
+
+}
+
+.nav-images {
+  display: flex;
+  flex-flow: row wrap;
+  flex-shrink: 0;
+  flex-grow: 0;
+  overflow: hidden;
+  position: relative;
+}
+.fa-caret-right {
+  float: right;
+  padding-right: 8px;
+}
+.dropdown-btn ,.abc{
+  font-size: 16px;
+  display: flex;  
+  justify-content: flex-start;
+  border: none;
+  background: none;
+  width:100%;
+  outline: none;
+transition: all 0.2s ease-out; 
+	
+}
+	
+.dropdown-container {
+  display: none;
+  background-color: rgba(15,15,15,0.70);
+  padding-left: 0px;
+  font-size: 14.5px;
+  border-left: 5px solid rgba(255,255,255,0.80);
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
+
+}
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+.dropdown-container.is-open {
+  display: block;
+}
+.nav-click	{
+  background-color: var(--active-color);
+  //border-left: 5px solid rgba(255,255,255,0.80);
+}
+.subnav-click {
+	color: #33BBFF;
+}
+.nav-link:hover {
+  background-color: rgba(153,153,153,0.50);
+	cursor: pointer;
+}
+ .sub-link:hover{
+ // background-color: rgba(153,153,153,0.50);
+	// background-color: rgba(153,153,153,0.50);
+	 color: #33BBFF;
+	cursor: pointer;
+}
+.nav-link:focus, .nav-link:active {
+  background-color:var(--active-color);
+}
+
+//.nav-link a:focus, .nav-link a:active {
+  //background-color: rgba(0,188,212,0.80);
+//}
+
+.nav-title {
+  color: var(--nav-text-color);
+  font-weight: bold;
+  height: var(--nav-height);
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-opener {
+  display: none;
+}
+
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+.ripple:active {
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.myButton {
+	box-shadow:inset 0px -3px 7px 0px #0666a3;
+	background:linear-gradient(to bottom, #0666a3 5%, #095484 100%);
+	background-color:#0666a3;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #095584;
+	margin: 8px 8px 0 0;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #095484 5%, #0666a3 100%);
+	background-color:#095484;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+    
+    
+
+@media (min-width: 768px) {
+  .nav {
+    grid-template-rows: var(--nav-height) auto;
+    grid-template-columns: var(--nav-width) auto;
+  }
+  
+  .nav-header {
+    grid-column-start: span 2;
+  }
+}
